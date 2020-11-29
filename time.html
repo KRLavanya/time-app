@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>
+The time
+</title>
+<body>
+    <select id = "selCountry">
+        <option value = "india">India</option>
+        <option value = "usa">USA</option>
+       </select>
+<button onclick = calc()> click me </button>
+<p id = "result"/>
+</body>
+<html>
+<script>
+function calc(){
+    var countryName = document.getElementById("selCountry").value;
+    console.log("CONTRY NAME" + countryName);
+    var selectedName = countryName;
+    console.log("COuntry selected"+ countryName);
+    switch(selectedName){
+        case "usa": {
+console.log("USAAAAA");
+            var date = new Date();
+console.log("$$$$$$$$$$" + date.toUTCString());
+console.log("EXACT HOURS"+ date.getUTCHours());
+ var hours = parseInt(date.getUTCHours()) - 05;
+ if(hours < 0){
+     hours = 24 + parseInt(hours); 
+     //UTC 1:00 , Actual - 20 hours , 1 - 5 = -4 , and which is to be subtracted from 24 hours
+     // subtracting from 24 hours to get the exact hour( Here , hours is in  negative)
+ }
+ console.log("HHHHH"+ hours);
+ var minutes = parseInt(date.getUTCMinutes()) - 00;
+ if(minutes < 0){
+     hours = parseInt(hours) - 1;
+     minutes = 60 - parseInt(minutes);
+ }
+ console.log("MMMMMM"   + minutes);
+ if(hours > 24){
+     hours = parseInt(hours) - 24;
+ }
+ if(minutes < 0){ // -5:30 , UTC - 14:20 and actual is 8:50
+     hours = parseInt(hours) + 1;
+     minutes = parseInt(minutes)-60;
+ }
+ console.log("HHHHH"+ hours);
+ break;
+        }
+        case "india":{
+            console.log("INDIAAAAAAA");
+            var date = new Date();
+console.log("$$$$$$$$$$" + date.toUTCString());
+console.log("EXACT HOURS"+ date.getUTCHours());
+ var hours = parseInt(date.getUTCHours()) + 05;
+ if(hours < 0){
+     hours = 24 + parseInt(hours); 
+     //UTC 1:00 , Actual - 20 hours , 1 - 5 = -4 , and which is to be subtracted from 24 hours
+     // subtracting from 24 hours to get the exact hour( Here , hours is in  negative)
+ }
+ console.log("HHHHH"+ hours);
+ var minutes = parseInt(date.getUTCMinutes()) + 30;
+ if(minutes < 0){ // // -5:30 , UTC - 14:20 and actual is 8:50
+     hours = parseInt(hours) - 1;
+     minutes = 60 - parseInt(minutes);
+ }
+ console.log("MMMMMM"   + minutes);
+ if(hours > 24){
+     hours = parseInt(hours) - 24;
+ }
+ if(minutes > 60){ 
+     hours = parseInt(hours) + 1;
+     minutes = parseInt(minutes)-60;
+ }
+ console.log("HHHHH"+ hours);
+        }
+    }
+
+    document.getElementById("result").innerHTML = hours + "::"+  minutes;
+ var hoursNJ = parseInt(date.getUTCHours()) - 05;
+ var minutesNJ = parseInt(date.getUTCMinutes()) - 00;
+
+console.log("HHHHH"+ hours);
+console.log("MMMMMM"   + minutes);
+console.log( "^^^^^^^^^^^^^^  "+ new Date(date.getFullYear() , date.getMonth() , date.getDate() , 
+hours , minutes , date.getUTCSeconds()));
+
+console.log( "^^^^^^^^^^^^^^  "+ new Date(date.getFullYear() , date.getMonth() , date.getDate() , 
+hoursNJ , minutesNJ , date.getSeconds()));
+
+console.log("######" + date.getTimezoneOffset());
+}
+</script>
