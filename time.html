@@ -14,6 +14,7 @@ The time
 <html>
 <script>
 function calc(){
+    console.log("Start of calculation");
     var countryName = document.getElementById("selCountry").value;
     console.log("CONTRY NAME" + countryName);
     var selectedName = countryName;
@@ -89,5 +90,6 @@ console.log( "^^^^^^^^^^^^^^  "+ new Date(date.getFullYear() , date.getMonth() ,
 hoursNJ , minutesNJ , date.getSeconds()));
 
 console.log("######" + date.getTimezoneOffset());
+console.log("ENd of Calculation");
 }
 </script>
